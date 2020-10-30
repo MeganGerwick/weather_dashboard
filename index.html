@@ -36,8 +36,8 @@
                 </button>
             </div>
             <div class="row">
-                <div id="searchHistory">
-                </div>
+                <table class="striped" id="searchHistory">
+                </table>
             </div>
         </div>
         <div class="col s10">
@@ -115,7 +115,10 @@
 
         //Check local storage to display last city searched 
 
-
+        //hover effect on <h4> elements
+        $("h4").hover(function () {
+            $(this).css("background-color", "cyan");
+        })
         //Add click event to Search button
         $('#search').on('click', function (event) {
 
@@ -137,9 +140,10 @@
             $('<img>').val('')
             $('#uvAlert').remove();
             //Append search to 'searchhistory' table
-            var tr = $('<a>').addClass('collection-item');
+            var tr = $('<h4>').attr('value', city).addClass('waves-effect waves-teal');
             tr.text(city);
-            $('#search-History').append(tr);
+            $('#searchHistory').append(tr);
+            console.log(tr);
 
             //AJAX call to weather api
             $.ajax({
