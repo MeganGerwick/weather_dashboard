@@ -1,101 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <link rel="stylesheet" href="./style.css" />
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    
-        <title>Weather Dashboard</title>
-    
-    </head>
-    <body>
-   
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./style.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Weather Dashboard</title>
+
+</head>
+
+<body>
+
     <header>
-        <div class="row" >
+        <div class="row">
             <img src="/Assets/Images/WD Header.png" alt="Weather Dashboard"></img>
         </div>
     </header>
     <div class="row">
         <div class="col s2">
             <h5 class="blue-grey-text text-darken-2">Search for a City:</h5>
-                <div class="row">
-                    <input type="search" id="search"></input>
-                    <button class="btn waves-effect waves-teal" type="search" id="search">Search
-                        <i class="material-icons right"></i>
-                    </button>
+            <div class="row">
+                <input type="search" id="searchInput"></input>
+                <button class="btn waves-effect waves-teal" type="search" id="search">Search
+                    <i class="material-icons right"></i>
+                </button>
+            </div>
+            <div class="row">
+                <div id="searchHistory" class="collection">
                 </div>
-                <div class="row">
-                    <table id="search-History">
-                    </table>
-                </div>
+            </div>
         </div>
         <div class="col s10">
             <div class="card teal lighten-4">
-                <div class="card-content black-text">
-                  <span class="card-title" id="cityName"></span>
-                  <h5 id="currentTemp"></h5>
-                  <h5 id="currentHumidity"></h5>
-                  <h5 id="currentWindSpeed"></h5>
-                  <h5 id="currentUV"></h5>
+                <div class="card-content black-text" id="currentDayData">
+                    <span class="card-title" id="cityName"></span>
+                    <img id="currentWeatherIcon"></img>
+                    <h6 id="currentTemp"></h6>
+                    <h6 id="currentHumidity"></h6>
+                    <h6 id="currentWindSpeed"></h6>
                 </div>
             </div>
             <div class="row">
                 <div class="col s2">
                     <div class="card blue-grey darken-1">
-                        <div class="card-content white-text">
-                        <span class="card-title" id="day1"></span>
-                        <h6 id="day1Temp"></h6>
-                        <h6 id="day1Humidity"></h6>
+                        <div class="card-content white-text" id='day1Data'>
+                            <span class="card-title" id="day1"></span>
+                            <img id="day1Icon"></img>
+                            <h6 id="day1Temp"></h6>
+                            <h6 id="day1Humidity"></h6>
+                            <span class="card-title" id="day1"></span>
                         </div>
                     </div>
                 </div>
                 <div class="col s2">
                     <div class="card blue-grey darken-1">
                         <div class="card-content white-text">
-                        <span class="card-title" id="day2"></span>
-                        <h6 id="day2Temp"></h6>
-                        <h6 id="day2Humidity"></h6>
+                            <span class="card-title" id="day2"></span>
+                            <img id="day2Icon"></img>
+                            <h6 id="day2Temp"></h6>
+                            <h6 id="day2Humidity"></h6>
                         </div>
                     </div>
                 </div>
                 <div class="col s2">
                     <div class="card blue-grey darken-1">
                         <div class="card-content white-text">
-                        <span class="card-title" id="day3"></span>
-                        <h6 id="day3Temp"></h6>
-                        <h6 id="day3Humidity"></h6>
+                            <span class="card-title" id="day3"></span>
+                            <img id="day3Icon"></img>
+                            <h6 id="day3Temp"></h6>
+                            <h6 id="day3Humidity"></h6>
                         </div>
                     </div>
                 </div>
                 <div class="col s2">
                     <div class="card blue-grey darken-1">
                         <div class="card-content white-text">
-                        <span class="card-title" id="day4"></span>
-                        <h6 id="day4Temp"></h6>
-                        <h6 id="day4Humidity"></h6>
+                            <span class="card-title" id="day4"></span>
+                            <img id="day4Icon"></img>
+                            <h6 id="day4Temp"></h6>
+                            <h6 id="day4Humidity"></h6>
                         </div>
                     </div>
                 </div>
                 <div class="col s2">
                     <div class="card blue-grey darken-1">
                         <div class="card-content white-text">
-                        <span class="card-title" id="day5"></span>
-                        <h6 id="day5Temp"></h6>
-                        <h6 id="day5Humidity"></h6>
+                            <span class="card-title" id="day5"></span>
+                            <img id="day5Icon"></img>
+                            <h6 id="day5Temp"></h6>
+                            <h6 id="day5Humidity"></h6>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>  
+    </div>
 
 
-    <script src="./script.js"></script>
-    <script type="text/javascript" src="js/materialize.min.js"></script>
+
+    <script src="js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript">
+
+        //Check local storage to display last city searched 
+
+
+        //Add click event to Search button
+        $('#search').on('click', function (event) {
+
+
+            event.preventDefault();
+            var city = $('#searchInput').val();
+            var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=c4fde36534d3d2305351dc3bd351c12c";
+
+            var date = new Date();
+            var formattedDate = (date.getMonth() + 1) + '/' + date.getDate();
+
+
+            //Store searches in local storage
+            localStorage.setItem('lastSearch', city);
+            //Clear out input box
+            $('#searchInput').val('')
+            //Clear out all paragraphs and imgs
+            $('<p>').val('')
+            $('<img>').val('')
+            $('#uvAlert').remove();
+            //Append search to 'searchhistory' table
+            var tr = $('<a>').addClass('collection-item');
+            tr.text(city);
+            $('#search-History').append(tr);
+
+            //AJAX call to weather api
+            $.ajax({
+                url: queryURL,
+                method: 'GET'
+            }).then(function (response) {
+                console.log(response);
+                var results = response;
+
+                // Display current day data
+                $('#cityName').text(city + '(' + formattedDate + ')');
+                var lat = response.city.coord.lat;
+                var lon = response.city.coord.lon;
+                console.log(lat);
+                console.log(lon);
+
+                //API call to get UV Index
+                var uvURL = 'http://api.openweathermap.org/data/2.5/uvi?lat=' + lat + '&lon=' + lon + '&appid=c4fde36534d3d2305351dc3bd351c12c';
+                $.ajax({
+                    url: uvURL,
+                    method: 'GET'
+                }).then(function (res) {
+                    console.log(res);
+                    var uvRate = (res.value);
+                    console.log(uvRate);
+
+
+
+                    var currentImage = $('#currentWeatherIcon').attr('src', 'http://openweathermap.org/img/w/' + response.list[0].weather[0].icon + '.png').attr('alt', response.list[0].weather[0].description);
+                    var currentTempResults = $('#currentTemp').text('Temperature: ' + response.list[0].main.temp + '°F');
+                    var currentHumidityResults = $('#currentHumidity').text('Humidity: ' + response.list[0].main.humidity + '%');
+                    var currentWindSpeedResults = $('#currentWindSpeed').text('Wind Speed: ' + response.list[0].wind.speed + 'mph');
+                    var uv = $('<button>').text(res.value).attr('id', 'uvAlert');
+
+
+                    $('#currentWeatherIcon').append(currentImage);
+                    $('#cityName').append(currentImage);
+                    $('#currentTemp').append(currentTempResults);
+                    $('#currentHumidity').append(currentHumidityResults);
+                    $('#currentWindSpeed').append(currentWindSpeedResults);
+                    $('#currentDayData').append(uv);
+
+                    //Dictate UV alert color
+                    if (uvRate < 3) {
+                        $('#uvAlert').addClass('low')
+                    }
+                    if (uvRate > 6) {
+                        $('#uvAlert').addClass('high')
+                    }
+                    else {
+                        $('#uvAlert').addClass('moderate')
+                    }
+                })
+                //5 day forecast data rendering 
+                //change title to date
+                //Day 1
+                $('#day1').text('Day 1');
+                var day1Image = $('#day1Icon').attr('src', 'http://openweathermap.org/img/w/' + response.list[1].weather[0].icon + '.png').attr('alt', response.list[0].weather[0].description);
+                var day1TempResults = $('#day1Temp').text('Temperature: ' + response.list[1].main.temp + '°F');
+                var day1HumidityResults = $('#day1Humidity').text('Humidity: ' + results.list[1].main.humidity + '%');
+
+                $("#day1Icon").append(day1Image);
+                $('#day1Temp').append(day1TempResults);
+                $('#day1Humidity').append(day1HumidityResults);
+
+                //Day 2
+                $('#day2').text('Day 2');
+                var day2Image = $('#day2Icon').attr('src', 'http://openweathermap.org/img/w/' + response.list[2].weather[0].icon + '.png').attr('alt', response.list[0].weather[0].description);
+                var day2TempResults = $('#day2Temp').text('Temperature: ' + response.list[2].main.temp + '°F');
+                var day2HumidityResults = $('#day2Humidity').text('Humidity: ' + results.list[2].main.humidity + '%');
+
+                $("#day2Icon").append(day2Image);
+                $('#day2Temp').append(day2TempResults);
+                $('#day2Humidity').append(day2HumidityResults);
+
+                //Day 3
+                $('#day3').text('Day 3');
+                var day3Image = $('#day3Icon').attr('src', 'http://openweathermap.org/img/w/' + response.list[3].weather[0].icon + '.png').attr('alt', response.list[0].weather[0].description);
+                var day3TempResults = $('#day3Temp').text('Temperature: ' + response.list[3].main.temp + '°F');
+                var day3HumidityResults = $('#day3Humidity').text('Humidity: ' + results.list[3].main.humidity + '%');
+
+                $("#day3Icon").append(day3Image);
+                $('#day3Temp').append(day3TempResults);
+                $('#day3Humidity').append(day3HumidityResults);
+
+                //Day 4
+                $('#day4').text('Day 4');
+                var day4Image = $('#day4Icon').attr('src', 'http://openweathermap.org/img/w/' + response.list[4].weather[0].icon + '.png').attr('alt', response.list[0].weather[0].description);
+                var day4TempResults = $('#day4Temp').text('Temperature: ' + response.list[4].main.temp + '°F');
+                var day4HumidityResults = $('#day4Humidity').text('Humidity: ' + results.list[4].main.humidity + '%');
+
+                $("#day4Icon").append(day4Image);
+                $('#day4Temp').append(day4TempResults);
+                $('#day4Humidity').append(day4HumidityResults);
+
+                //Day 5
+                $('#day5').text('Day 5');
+                var day5Image = $('#day5Icon').attr('src', 'http://openweathermap.org/img/w/' + response.list[5].weather[0].icon + '.png').attr('alt', response.list[0].weather[0].description);
+                var day5TempResults = $('#day5Temp').text('Temperature: ' + response.list[5].main.temp + '°F');
+                var day5HumidityResults = $('#day5Humidity').text('Humidity: ' + results.list[5].main.humidity + '%');
+
+                $("#day5Icon").append(day5Image);
+                $('#day5Temp').append(day5TempResults);
+                $('#day5Humidity').append(day5HumidityResults);
+            })
+        })
+
+
+
+
+
+
+
+//Add Event listner to all search history items
+    //Call function to display current day data
+    //Call function to display next 5 days
+
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </body>

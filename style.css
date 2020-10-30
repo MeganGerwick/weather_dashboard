@@ -1,0 +1,15 @@
+.h5 {
+    font-size: 1rem ;
+}
+
+.low {
+    background-color: green;
+}
+
+.moderate {
+background-color: yellow;
+}
+
+.high {
+    background-color: red;
+}
