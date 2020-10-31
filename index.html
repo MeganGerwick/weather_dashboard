@@ -40,10 +40,12 @@
                 </table>
             </div>
         </div>
-        <div class="col s10">
+        <div class="col s8">
             <div class="card teal lighten-4">
                 <div class="card-content black-text" id="currentDayData">
-                    <span class="card-title" id="cityName"></span>
+                    <span class="card-title">
+                        <h5 id="cityName"></h5>
+                    </span>
                     <img id="currentWeatherIcon"></img>
                     <h6 id="currentTemp"></h6>
                     <h6 id="currentHumidity"></h6>
@@ -114,23 +116,26 @@
     <script type="text/javascript">
 
         //Check local storage to display last city searched 
+        var city = localStorage.getItem("lastSearch");
+        console.log('local storage' + city);
+        if (city) {
+            renderData(true);
+        }
 
-        //hover effect on <h4> elements
-        $("h4").hover(function () {
-            $(this).css("background-color", "cyan");
-        })
+
+
         //Add click event to Search button
         $('#search').on('click', function (event) {
-
-
             event.preventDefault();
-            var city = $('#searchInput').val();
+            city = $('#searchInput').val();
+            console.log('search button' + city)
+            renderData(true);
+        })
+        //Set function to render all data
+        function renderData(addFavorite) {
             var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=c4fde36534d3d2305351dc3bd351c12c";
-
             var date = new Date();
             var formattedDate = (date.getMonth() + 1) + '/' + date.getDate();
-
-
             //Store searches in local storage
             localStorage.setItem('lastSearch', city);
             //Clear out input box
@@ -140,10 +145,14 @@
             $('<img>').val('')
             $('#uvAlert').remove();
             //Append search to 'searchhistory' table
-            var tr = $('<h4>').attr('value', city).addClass('waves-effect waves-teal');
-            tr.text(city);
-            $('#searchHistory').append(tr);
-            console.log(tr);
+            if (addFavorite) {
+                var tr = $('<h4>').attr('value', city).addClass('waves-effect waves-teal');
+                tr.text(city);
+
+                $('#searchHistory').append(tr).append('<div>');
+                console.log(tr);
+            }
+
 
             //AJAX call to weather api
             $.ajax({
@@ -200,6 +209,7 @@
                 //5 day forecast data rendering 
                 //change title to date
                 //Day 1
+
                 $('#day1').text('Day 1');
                 var day1Image = $('#day1Icon').attr('src', 'http://openweathermap.org/img/w/' + response.list[1].weather[0].icon + '.png').attr('alt', response.list[0].weather[0].description);
                 var day1TempResults = $('#day1Temp').text('Temperature: ' + response.list[1].main.temp + '°F');
@@ -248,18 +258,19 @@
                 $("#day5Icon").append(day5Image);
                 $('#day5Temp').append(day5TempResults);
                 $('#day5Humidity').append(day5HumidityResults);
+
             })
-        })
+        }
+        //Initialize event listener for<h4> elements (Search History)
+        $(document).on('click', 'h4', function () {
+            city = $(this).attr('value');
+            console.log('history city =' + city);
+            console.log(this)
+            renderData(false);
+        });
 
 
 
-
-
-
-
-//Add Event listner to all search history items
-    //Call function to display current day data
-    //Call function to display next 5 days
 
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
