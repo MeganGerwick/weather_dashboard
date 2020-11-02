@@ -19,7 +19,7 @@
     <header>
         <div class="row">
             <div class="container">
-                <img src="./Assets/Images/header.png" alt="Weather Dashboard" style="width: 100%; height: 175px;"></img>
+                <img src="./assets/Images/header.png" alt="Weather Dashboard" style="width: 100%; height: 175px;"></img>
                 <div class="centered">
                     <h1>WEATHER DASHBOARD</h1>
                 </div>
@@ -170,7 +170,7 @@
                 console.log(lon);
 
                 //API call to get UV Index
-                var uvURL = 'http://api.openweathermap.org/data/2.5/uvi?lat=' + lat + '&lon=' + lon + '&appid=c4fde36534d3d2305351dc3bd351c12c';
+                var uvURL = 'https://api.openweathermap.org/data/2.5/uvi?lat=' + lat + '&lon=' + lon + '&appid=c4fde36534d3d2305351dc3bd351c12c';
                 $.ajax({
                     url: uvURL,
                     method: 'GET'
@@ -181,7 +181,7 @@
 
 
 
-                    var currentImage = $('#currentWeatherIcon').attr('src', 'http://openweathermap.org/img/w/' + response.list[0].weather[0].icon + '.png').attr('alt', response.list[0].weather[0].description);
+                    var currentImage = $('#currentWeatherIcon').attr('src', 'https://openweathermap.org/img/w/' + response.list[0].weather[0].icon + '.png').attr('alt', response.list[0].weather[0].description);
                     var currentTempResults = $('#currentTemp').text('Temperature: ' + response.list[0].main.temp + '°F');
                     var currentHumidityResults = $('#currentHumidity').text('Humidity: ' + response.list[0].main.humidity + '%');
                     var currentWindSpeedResults = $('#currentWindSpeed').text('Wind Speed: ' + response.list[0].wind.speed + 'mph');
@@ -211,7 +211,7 @@
                 //Day 1
 
                 $('#day1').text('Day 1');
-                var day1Image = $('#day1Icon').attr('src', 'http://openweathermap.org/img/w/' + response.list[1].weather[0].icon + '.png').attr('alt', response.list[0].weather[0].description);
+                var day1Image = $('#day1Icon').attr('src', 'https://openweathermap.org/img/w/' + response.list[1].weather[0].icon + '.png').attr('alt', response.list[0].weather[0].description);
                 var day1TempResults = $('#day1Temp').text('Temperature: ' + response.list[1].main.temp + '°F');
                 var day1HumidityResults = $('#day1Humidity').text('Humidity: ' + results.list[1].main.humidity + '%');
 
@@ -221,7 +221,7 @@
 
                 //Day 2
                 $('#day2').text('Day 2');
-                var day2Image = $('#day2Icon').attr('src', 'http://openweathermap.org/img/w/' + response.list[2].weather[0].icon + '.png').attr('alt', response.list[0].weather[0].description);
+                var day2Image = $('#day2Icon').attr('src', 'https://openweathermap.org/img/w/' + response.list[2].weather[0].icon + '.png').attr('alt', response.list[0].weather[0].description);
                 var day2TempResults = $('#day2Temp').text('Temperature: ' + response.list[2].main.temp + '°F');
                 var day2HumidityResults = $('#day2Humidity').text('Humidity: ' + results.list[2].main.humidity + '%');
 
@@ -231,7 +231,7 @@
 
                 //Day 3
                 $('#day3').text('Day 3');
-                var day3Image = $('#day3Icon').attr('src', 'http://openweathermap.org/img/w/' + response.list[3].weather[0].icon + '.png').attr('alt', response.list[0].weather[0].description);
+                var day3Image = $('#day3Icon').attr('src', 'https://openweathermap.org/img/w/' + response.list[3].weather[0].icon + '.png').attr('alt', response.list[0].weather[0].description);
                 var day3TempResults = $('#day3Temp').text('Temperature: ' + response.list[3].main.temp + '°F');
                 var day3HumidityResults = $('#day3Humidity').text('Humidity: ' + results.list[3].main.humidity + '%');
 
@@ -241,7 +241,7 @@
 
                 //Day 4
                 $('#day4').text('Day 4');
-                var day4Image = $('#day4Icon').attr('src', 'http://openweathermap.org/img/w/' + response.list[4].weather[0].icon + '.png').attr('alt', response.list[0].weather[0].description);
+                var day4Image = $('#day4Icon').attr('src', 'https://openweathermap.org/img/w/' + response.list[4].weather[0].icon + '.png').attr('alt', response.list[0].weather[0].description);
                 var day4TempResults = $('#day4Temp').text('Temperature: ' + response.list[4].main.temp + '°F');
                 var day4HumidityResults = $('#day4Humidity').text('Humidity: ' + results.list[4].main.humidity + '%');
 
@@ -251,7 +251,7 @@
 
                 //Day 5
                 $('#day5').text('Day 5');
-                var day5Image = $('#day5Icon').attr('src', 'http://openweathermap.org/img/w/' + response.list[5].weather[0].icon + '.png').attr('alt', response.list[0].weather[0].description);
+                var day5Image = $('#day5Icon').attr('src', 'https://openweathermap.org/img/w/' + response.list[5].weather[0].icon + '.png').attr('alt', response.list[0].weather[0].description);
                 var day5TempResults = $('#day5Temp').text('Temperature: ' + response.list[5].main.temp + '°F');
                 var day5HumidityResults = $('#day5Humidity').text('Humidity: ' + results.list[5].main.humidity + '%');
 
